@@ -15,3 +15,97 @@
 @import url('./vite-promo.css');
 @import url('./badges.css');
 @import url('./back-link.css');
+
+.container {
+  position: relative;
+  background-color: #ffffff;
+  padding: 36px 156px 318px 156px;
+}
+
+.input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+#datetime-picker {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  width: 272px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+#datetime-picker.active {
+  border-color: #4e75ff;
+}
+
+button[data-start] {
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 75px;
+  background: #cfcfcf;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #989898;
+  transition: background-color 0.3s ease;
+}
+
+button[data-start].active {
+  background-color: #4e75ff;
+  color: #fff;
+  cursor: pointer;
+  border-color: transparent;
+}
+
+.timer {
+  display: flex;
+  gap: 24px;
+  max-width: 346px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.value {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #2e2f42;
+}
+
+.form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.snac-label {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 30px;
+}

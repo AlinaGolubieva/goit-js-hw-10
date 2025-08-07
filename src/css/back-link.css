@@ -1,11 +1,15 @@
 .back-link {
-  position: relative;
+  position: absolute;
   display: inline-block;
   padding: 4px 8px;
-  margin-top: 32px;
   border: 1px solid;
   border-radius: 8px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin-top: 0px;
 }
+
 .back-link::before {
   content: '';
   position: absolute;

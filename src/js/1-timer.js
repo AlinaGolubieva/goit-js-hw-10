@@ -1,11 +1,9 @@
-// Імпорти бібліотек
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// DOM-елементи
 const input = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start]');
 const daysEl = document.querySelector('[data-days]');
@@ -16,10 +14,8 @@ const secondsEl = document.querySelector('[data-seconds]');
 let userSelectedDate = null;
 let timerId = null;
 
-// Кнопка Start при старті сторінки неактивна
 startBtn.disabled = true;
 
-// Параметри flatpickr
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -35,21 +31,22 @@ const options = {
         position: 'topRight',
       });
       startBtn.disabled = true;
+      startBtn.classList.remove('active');
     } else {
       userSelectedDate = pickedDate;
       startBtn.disabled = false;
+      startBtn.classList.add('active');
     }
   },
 };
 
-// Ініціалізація календаря
 flatpickr(input, options);
 
-// Подія на кнопку Start
 startBtn.addEventListener('click', () => {
   if (!userSelectedDate) return;
 
   startBtn.disabled = true;
+  startBtn.classList.remove('active');
   input.disabled = true;
 
   timerId = setInterval(() => {
@@ -58,6 +55,7 @@ startBtn.addEventListener('click', () => {
 
     if (timeLeft <= 0) {
       clearInterval(timerId);
+      timerId = null;
       updateTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       input.disabled = false;
       return;
@@ -68,7 +66,6 @@ startBtn.addEventListener('click', () => {
   }, 1000);
 });
 
-// Функція оновлення відображення
 function updateTimer({ days, hours, minutes, seconds }) {
   daysEl.textContent = String(days).padStart(2, '0');
   hoursEl.textContent = addLeadingZero(hours);
@@ -76,12 +73,10 @@ function updateTimer({ days, hours, minutes, seconds }) {
   secondsEl.textContent = addLeadingZero(seconds);
 }
 
-// Форматування з нулем
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
 
-// Конвертація мілісекунд у час
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
